@@ -30,7 +30,7 @@
   main .wrap { padding-block: 24px 8px; display: flex; flex-direction: column; gap: 26px; }
   .player { display: flex; flex-direction: column; gap: 10px; }
   .frame { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: 12px; overflow: hidden; }
-  .frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .frame video { position: absolute; inset: 0; width: 100%; height: 100%; display: block; background: #000; object-fit: contain; }
   .spot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 15px; color: var(--muted); }
   .spot strong { color: var(--ink); font-weight: 700; }
   .tag { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--navy); background: var(--orange); border-radius: 5px; padding: 3px 8px; }
@@ -61,9 +61,10 @@
 </div></header>
 <main><div class="wrap">
   <section class="player" aria-label="Patient story video">
-    <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/evrB9i6qLec?rel=0&modestbranding=1&playsinline=1" title="Patient story: SI joint fusion" loading="eager"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+    <div class="frame"><video controls playsinline preload="metadata" poster="../poster.jpg" title="Patient story: SI joint fusion">
+      <source src="../videos/kim.mp4" type="video/mp4">
+      Your browser can&#39;t play this video.
+    </video></div>
     <div class="spot"><span class="tag">Physician Spotlight</span> <strong>Dr. Scott Kim</strong></div>
   </section>
   <section aria-labelledby="hear">
