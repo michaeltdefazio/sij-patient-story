@@ -67,6 +67,11 @@
   .dl .ic { width: 44px; height: 44px; border-radius: 10px; background: var(--teal-bright); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .dl .t { font-weight: 800; line-height: 1.25; }
   .dl .s { font-size: 13.5px; font-weight: 500; color: var(--muted); }
+  .edu { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 14px; }
+  .edu figure { margin: 0; display: flex; flex-direction: column; gap: 8px; }
+  .edu .frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .edu figcaption { font-size: 15px; font-weight: 700; }
+  .edu-note { margin: 0 0 12px; font-size: 15px; color: var(--muted); }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 10px; }
   .grid a { display: block; padding: 14px 16px; border-radius: 10px; background: var(--soft); color: var(--ink); font-weight: 700; text-decoration: none; border: 2px solid transparent; }
   .grid a:hover, .grid a:focus-visible { border-color: var(--teal-bright); outline: none; }
@@ -115,6 +120,24 @@
     <div class="dl">
       <a href="now-offering-brochure.pdf" target="_blank" rel="noopener"><span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"/><path d="M14 3v5h5M9 13h6M9 17h6" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><span class="t">Dr. David Gordon &middot; Now Offering Brochure</span><br><span class="s">SI joint fusion at Center for Pain Management (PDF)</span></span></a>
       <a href="patient-story-handout.pdf" target="_blank" rel="noopener"><span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"/><path d="M14 3v5h5M9 13h6M9 17h6" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><span class="t">Patient Testimonial Handout</span><br><span class="s">This patient story and how to reach us (PDF)</span></span></a>
+    </div>
+  </section>
+  <section aria-labelledby="eduh">
+    <h2 id="eduh">Educational videos</h2>
+    <p class="edu-note">General information about SI joint pain and treatment, the same videos linked on the Now Offering brochure.</p>
+    <div class="edu">
+      <figure>
+        <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/moFgtJDI0w0?rel=0&amp;playsinline=1" title="SI Joint Education &middot; Video 1" loading="lazy"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <figcaption>SI Joint Education &middot; Video 1</figcaption>
+      </figure>
+      <figure>
+        <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/EsVReai9C5w?rel=0&amp;playsinline=1" title="SI Joint Education &middot; Video 2" loading="lazy"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <figcaption>SI Joint Education &middot; Video 2</figcaption>
+      </figure>
     </div>
   </section>
   <p class="fine">Patient testimonial. Individual results vary, and this patient&#39;s experience may not be typical. Talk with your physician about the benefits and risks of any procedure. This video is for general information and is not medical advice.</p>
