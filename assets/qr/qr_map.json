@@ -1,0 +1,62 @@
+{
+ "rutledge": {
+  "url": "https://michaeltdefazio.github.io/sij-patient-story/rutledge/",
+  "version": 4,
+  "error": "M",
+  "decoded_ok": true
+ },
+ "hom": {
+  "url": "https://michaeltdefazio.github.io/sij-patient-story/hom/",
+  "version": 4,
+  "error": "M",
+  "decoded_ok": true
+ },
+ "gordon": {
+  "url": "https://michaeltdefazio.github.io/sij-patient-story/gordon/",
+  "version": 4,
+  "error": "M",
+  "decoded_ok": true
+ },
+ "cook": {
+  "url": "https://michaeltdefazio.github.io/sij-patient-story/cook/",
+  "version": 4,
+  "error": "M",
+  "decoded_ok": true
+ },
+ "kowlowitz": {
+  "url": "https://michaeltdefazio.github.io/sij-patient-story/kowlowitz/",
+  "version": 4,
+  "error": "M",
+  "decoded_ok": true
+ },
+ "oberhelman": {
+  "url": "https://michaeltdefazio.github.io/sij-patient-story/oberhelman/",
+  "version": 5,
+  "error": "M",
+  "decoded_ok": true
+ },
+ "dorwart": {
+  "url": "https://michaeltdefazio.github.io/sij-patient-story/dorwart/",
+  "version": 4,
+  "error": "M",
+  "decoded_ok": true
+ },
+ "kim": {
+  "url": "https://michaeltdefazio.github.io/sij-patient-story/kim/",
+  "version": 4,
+  "error": "M",
+  "decoded_ok": true
+ },
+ "bush": {
+  "url": "https://michaeltdefazio.github.io/sij-patient-story/bush/",
+  "version": 4,
+  "error": "M",
+  "decoded_ok": true
+ },
+ "tolbert": {
+  "url": "https://michaeltdefazio.github.io/sij-patient-story/tolbert/",
+  "version": 4,
+  "error": "M",
+  "decoded_ok": true
+ }
+}

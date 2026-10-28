@@ -1,0 +1,418 @@
+{
+ "cook": {
+  "bio": [
+   "Dr. Andrew Cook is a board-certified anesthesiologist and pain medicine physician who completed his fellowship at the University of Kentucky. In 2022 he became the first physician at Center for Pain Management’s Brownsburg office.",
+   "He takes a multidisciplinary approach built around minimally invasive procedures, including neuromodulation and SI joint fusion, to relieve pain and restore function."
+  ],
+  "education": [
+   [
+    "Medical School",
+    "University of Miami Miller School of Medicine, Miami, FL"
+   ],
+   [
+    "Residency",
+    "Anesthesiology, University of Miami / Jackson Memorial Hospital"
+   ],
+   [
+    "Fellowship",
+    "Pain Medicine, University of Kentucky, Lexington, KY"
+   ],
+   [
+    "Board Certification",
+    "Anesthesiology & Pain Medicine"
+   ]
+  ],
+  "badges": [
+   [
+    "BOARD-CERTIFIED",
+    "Anesthesiology & Pain"
+   ],
+   [
+    "FELLOWSHIP-TRAINED",
+    "University of Kentucky"
+   ],
+   [
+    "SPECIALTY FOCUS",
+    "Neuromodulation"
+   ]
+  ],
+  "footer": [
+   "Center for Pain Management",
+   "Indianapolis | Brownsburg | Avon | Greenwood"
+  ]
+ },
+ "tolbert": {
+  "bio": [
+   "Dr. Ashley Tolbert is a board-certified anesthesiologist and pain medicine physician trained at the University of Chicago. She joined Center for Pain Management in 2020.",
+   "She treats acute, chronic and cancer-related pain with advanced options such as neuromodulation, vertebral augmentation and SI joint fusion, tailoring care to each patient."
+  ],
+  "education": [
+   [
+    "Medical School",
+    "Loyola University Chicago Stritch School of Medicine"
+   ],
+   [
+    "Residency",
+    "Anesthesiology, University of Chicago, Chicago, IL"
+   ],
+   [
+    "Fellowship",
+    "Pain Management, University of Chicago, Chicago, IL"
+   ],
+   [
+    "Board Certification",
+    "Anesthesiology & Pain Medicine"
+   ]
+  ],
+  "badges": [
+   [
+    "BOARD-CERTIFIED",
+    "Anesthesiology & Pain"
+   ],
+   [
+    "FELLOWSHIP-TRAINED",
+    "University of Chicago"
+   ],
+   [
+    "SPECIALTY FOCUS",
+    "Neuromodulation"
+   ]
+  ],
+  "footer": [
+   "Center for Pain Management",
+   "Indianapolis | Greenwood"
+  ]
+ },
+ "hom": {
+  "bio": [
+   "Dr. Brian Hom is a board-certified anesthesiologist and pain medicine physician who completed his fellowship at the University of Cincinnati. He joined Center for Pain Management in 2023.",
+   "He uses an evidence-based, multimodal approach centered on minimally invasive treatments, including neuromodulation and SI joint fusion, to diagnose and treat pain at its source."
+  ],
+  "education": [
+   [
+    "Medical School",
+    "Northeast Ohio Medical University, Rootstown, OH"
+   ],
+   [
+    "Fellowship",
+    "Pain Medicine, University of Cincinnati Health, Cincinnati, OH"
+   ],
+   [
+    "Board Certification",
+    "Anesthesiology & Pain Medicine"
+   ]
+  ],
+  "badges": [
+   [
+    "BOARD-CERTIFIED",
+    "Anesthesiology & Pain"
+   ],
+   [
+    "FELLOWSHIP-TRAINED",
+    "Univ. of Cincinnati"
+   ],
+   [
+    "SPECIALTY FOCUS",
+    "Neuromodulation"
+   ]
+  ],
+  "footer": [
+   "Center for Pain Management",
+   "Kokomo"
+  ]
+ },
+ "gordon": {
+  "bio": [
+   "Dr. David Gordon is a board-certified anesthesiologist and pain medicine physician who completed his fellowship at the University of California San Francisco. He joined Center for Pain Management in 2018.",
+   "He uses evidence-based, minimally invasive treatments, including neuromodulation and SI joint fusion, that target pain at its source to improve his patients’ quality of life."
+  ],
+  "education": [
+   [
+    "Medical School",
+    "Indiana University School of Medicine, Indianapolis, IN"
+   ],
+   [
+    "Residency",
+    "Anesthesiology, University of Chicago Medical Center, Chicago, IL"
+   ],
+   [
+    "Fellowship",
+    "Pain Medicine, University of California San Francisco Medical Center"
+   ],
+   [
+    "Board Certification",
+    "Anesthesiology & Pain Medicine"
+   ]
+  ],
+  "badges": [
+   [
+    "BOARD-CERTIFIED",
+    "Anesthesiology & Pain"
+   ],
+   [
+    "FELLOWSHIP-TRAINED",
+    "UC San Francisco"
+   ],
+   [
+    "SPECIALTY FOCUS",
+    "Neuromodulation"
+   ]
+  ],
+  "footer": [
+   "Center for Pain Management",
+   "Greenwood | Carmel"
+  ]
+ },
+ "kowlowitz": {
+  "bio": [
+   "Dr. Edward Kowlowitz is a board-certified anesthesiologist and pain medicine physician who founded Center for Pain Management in 1993. He completed his fellowship in chronic pain at Duke University Medical Center.",
+   "With more than 20 years of experience, he focuses on neuromodulation and minimally invasive procedures, including SI joint fusion, to solve difficult pain problems and help patients get back to living."
+  ],
+  "education": [
+   [
+    "Undergraduate",
+    "B.S. Biomedical Engineering, Columbia University, New York, NY"
+   ],
+   [
+    "Medical School",
+    "New York Medical College, Valhalla, NY"
+   ],
+   [
+    "Fellowship",
+    "Anesthesiology & Chronic Pain, Duke University Medical Center, Durham, NC"
+   ],
+   [
+    "Board Certification",
+    "Anesthesiology, Pain Medicine & Addiction Medicine"
+   ]
+  ],
+  "badges": [
+   [
+    "BOARD-CERTIFIED",
+    "Anesthesiology & Pain"
+   ],
+   [
+    "FELLOWSHIP-TRAINED",
+    "Duke University"
+   ],
+   [
+    "PRACTICE FOUNDER",
+    "Since 1993"
+   ]
+  ],
+  "footer": [
+   "Center for Pain Management",
+   "8805 N. Meridian St., Indianapolis"
+  ]
+ },
+ "oberhelman": {
+  "bio": [
+   "Dr. Forrest Oberhelman is a fellowship-trained pain medicine physician who completed his residency in Physical Medicine and Rehabilitation and his pain fellowship at Indiana University School of Medicine.",
+   "He joined Center for Pain Management in 2025 and specializes in advanced interventional and neuromodulation procedures, including SI joint fusion, to help patients regain function and quality of life."
+  ],
+  "education": [
+   [
+    "Medical School",
+    "Marian University, Indianapolis, IN"
+   ],
+   [
+    "Internship",
+    "Indiana University School of Medicine, Indianapolis, IN"
+   ],
+   [
+    "Residency",
+    "Physical Medicine & Rehabilitation, Indiana University School of Medicine"
+   ],
+   [
+    "Fellowship",
+    "Pain Medicine, Indiana University School of Medicine"
+   ]
+  ],
+  "badges": [
+   [
+    "FELLOWSHIP-TRAINED",
+    "IU School of Medicine"
+   ],
+   [
+    "RESIDENCY-TRAINED",
+    "Physical Medicine & Rehab"
+   ],
+   [
+    "SPECIALTY FOCUS",
+    "Neuromodulation"
+   ]
+  ],
+  "footer": [
+   "Center for Pain Management",
+   "Kokomo | Indianapolis | Greenwood"
+  ]
+ },
+ "bush": {
+  "bio": [
+   "Dr. Jocelyn Bush is a board-certified anesthesiologist and pain medicine physician trained at the University of Chicago. She has cared for patients at Center for Pain Management since 2009.",
+   "She specializes in spinal cord stimulation and minimally invasive procedures, including SI joint fusion, and works to help each patient return to the best version of themselves."
+  ],
+  "education": [
+   [
+    "Medical School",
+    "University of Chicago Pritzker School of Medicine"
+   ],
+   [
+    "Residency",
+    "Anesthesiology, University of Chicago Medical Center"
+   ],
+   [
+    "Fellowship",
+    "Pain Medicine, University of Chicago Medical Center"
+   ],
+   [
+    "Board Certification",
+    "Anesthesiology & Pain Medicine"
+   ]
+  ],
+  "badges": [
+   [
+    "BOARD-CERTIFIED",
+    "Anesthesiology & Pain"
+   ],
+   [
+    "FELLOWSHIP-TRAINED",
+    "University of Chicago"
+   ],
+   [
+    "INDIANAPOLIS MONTHLY",
+    "Top Doctor 2025"
+   ]
+  ],
+  "footer": [
+   "Center for Pain Management",
+   "8805 N. Meridian St., Indianapolis"
+  ]
+ },
+ "rutledge": {
+  "bio": [
+   "Dr. Joseph Rutledge is a board-certified anesthesiologist and pain medicine physician who completed his fellowship at the University of Cincinnati. He joined Center for Pain Management in 2020.",
+   "He treats acute and chronic pain with interventional procedures and multidisciplinary care, including neuromodulation and SI joint fusion, close to home in Lafayette."
+  ],
+  "education": [
+   [
+    "Medical School",
+    "Saint Louis University School of Medicine, St. Louis, MO"
+   ],
+   [
+    "Residency",
+    "Anesthesia & Critical Care, Saint Louis University Hospital"
+   ],
+   [
+    "Fellowship",
+    "Pain Medicine, University of Cincinnati & Cincinnati Children’s Hospital"
+   ],
+   [
+    "Board Certification",
+    "Anesthesiology & Pain Medicine"
+   ]
+  ],
+  "badges": [
+   [
+    "BOARD-CERTIFIED",
+    "Anesthesiology & Pain"
+   ],
+   [
+    "FELLOWSHIP-TRAINED",
+    "Univ. of Cincinnati"
+   ],
+   [
+    "SPECIALTY FOCUS",
+    "SI Joint Fusion"
+   ]
+  ],
+  "footer": [
+   "Center for Pain Management",
+   "Lafayette"
+  ]
+ },
+ "dorwart": {
+  "bio": [
+   "Dr. Michael Dorwart is a fellowship-trained pain medicine physician and former Assistant Professor of Clinical Anesthesia at the Indiana University Pain Medicine Center. He joined Center for Pain Management in 2024.",
+   "He focuses on advanced pain therapies, including SI joint fusion, using a comprehensive approach that restores function while reducing the side effects of traditional treatments."
+  ],
+  "education": [
+   [
+    "Medical School",
+    "Indiana University School of Medicine, Indianapolis, IN"
+   ],
+   [
+    "Residency",
+    "Neurology, Indiana University, Indianapolis, IN"
+   ],
+   [
+    "Fellowship",
+    "Pain Medicine, Indiana University Department of Anesthesiology"
+   ],
+   [
+    "Graduate Degree",
+    "M.S. Microbiology, Purdue University, West Lafayette, IN"
+   ]
+  ],
+  "badges": [
+   [
+    "FELLOWSHIP-TRAINED",
+    "Pain Medicine"
+   ],
+   [
+    "FORMER IU FACULTY",
+    "Clinical Anesthesia"
+   ],
+   [
+    "SPECIALTY FOCUS",
+    "Advanced Pain Therapies"
+   ]
+  ],
+  "footer": [
+   "Center for Pain Management",
+   "Downtown Indianapolis"
+  ]
+ },
+ "kim": {
+  "bio": [
+   "Dr. Scott Kim is a board-certified anesthesiologist and pain medicine physician who completed his fellowship at the University of Maryland Medical Center. He joined Center for Pain Management in 2017.",
+   "He has broad expertise in interventional procedures for acute and chronic pain, from sacroiliac joint treatments and SI joint fusion to spinal cord stimulation."
+  ],
+  "education": [
+   [
+    "Medical School",
+    "Virginia Commonwealth University School of Medicine"
+   ],
+   [
+    "Residency",
+    "Anesthesiology, Univ. of Arkansas for Medical Sciences"
+   ],
+   [
+    "Fellowship",
+    "Pain Medicine, University of Maryland Medical Center"
+   ],
+   [
+    "Board Certification",
+    "Anesthesiology & Pain Medicine"
+   ]
+  ],
+  "badges": [
+   [
+    "BOARD-CERTIFIED",
+    "Anesthesiology & Pain"
+   ],
+   [
+    "FELLOWSHIP-TRAINED",
+    "University of Maryland"
+   ],
+   [
+    "SPECIALTY FOCUS",
+    "Interventional Pain"
+   ]
+  ],
+  "footer": [
+   "Center for Pain Management",
+   "Greenwood"
+  ]
+ }
+}
