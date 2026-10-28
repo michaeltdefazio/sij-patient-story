@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600;1,800&display=swap">
 <style>
-  :root { --navy:#293242; --navy-2:#1F2735; --orange:#EB9F25; --gold:#F7B538; --teal:#007F82; --teal-bright:#00B7BA; --paper:#FFFFFF;
+  :root { --navy:#293242; --navy-2:#1F2735; --orange:#EB9F25; --gold:#F7B538; --teal:#00B7BA; --teal-bright:#00B7BA; --paper:#FFFFFF;
           --soft:#F3F5F7; --ink:#293242; --muted:#5A6270; --on-navy:#FFFFFF; --teal-on-navy:#4FD3D6;
           --font:'Montserrat','Segoe UI',Arial,Helvetica,sans-serif; color-scheme: light; --bar: 0px; }
   * { box-sizing: border-box; }
@@ -30,18 +30,33 @@
   body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font); font-size: 16px; line-height: 1.5; }
   .wrap { max-width: 760px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
   .band { background: var(--navy); color: var(--on-navy); position: relative; }
-  .band::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: var(--orange); }
+  .obar { background: var(--orange); }
+  .obar .wrap { padding-block: 14px 16px; display: flex; flex-direction: column; gap: 3px; }
+  .obar .ot { margin: 0; font-size: clamp(18px, 4.9vw, 22px); font-weight: 800; font-style: italic; line-height: 1.2; color: var(--navy-2); text-wrap: balance; }
+  .nw { white-space: nowrap; }
+  .obar .os { margin: 0; font-size: 14.5px; font-weight: 600; line-height: 1.4; color: var(--navy); text-wrap: balance; }
   .band .wrap { padding-block: 26px 30px; display: flex; flex-direction: column; gap: 6px; }
-  .eyebrow { font-size: 13px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--orange); }
-  h1 { margin: 0; font-size: clamp(28px, 6vw, 40px); font-weight: 800; font-style: italic; line-height: 1.1; text-wrap: balance; }
+  .eyebrow { font-size: 13.5px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #33C5C8; }
+  h1 { margin: 0; font-size: clamp(25px, 7vw, 40px); font-weight: 800; font-style: italic; line-height: 1.1; text-wrap: balance; }
   h1 .cfp { color: var(--gold); }
-  .sub { margin: 0; font-size: 17px; font-weight: 600; font-style: italic; color: #2BC4C7; }
+  .sub { margin: 2px 0 0; font-size: 17px; font-weight: 600; font-style: italic; color: #DDE7EA; }
   main .wrap { padding-block: 22px 8px; display: flex; flex-direction: column; gap: 28px; }
-  h2 { margin: 0 0 10px; font-size: 20px; font-weight: 800; color: var(--teal); text-wrap: balance; }
+  h2 { margin: 0 0 10px; font-size: 21px; font-weight: 800; line-height: 1.2; color: var(--navy); text-wrap: balance; padding-left: 12px; border-left: 5px solid var(--teal-bright); }
+  .solution h2, .ask-mike h2 { padding-left: 0; border-left: 0; }
+  p, li, dd { text-wrap: pretty; }
+  .next .phone, .ask-mike p, .tile b, .tile span, ul.ticks li, .edu-note { text-wrap: balance; }
   a:focus-visible, button:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
 
   .player { display: flex; flex-direction: column; gap: 10px; scroll-margin-top: 12px; }
   .frame { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: 12px; overflow: hidden; }
+  .playover { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+              border: 0; padding: 0; cursor: pointer; background: linear-gradient(180deg, rgba(15,20,30,0) 35%, rgba(15,20,30,0.55) 100%); }
+  .playover[hidden] { display: none; }
+  .playover .pi { width: 68px; height: 68px; border-radius: 50%; background: rgba(255,255,255,0.95); display: flex; align-items: center; justify-content: center;
+                  padding-left: 4px; box-shadow: 0 6px 22px rgba(0,0,0,0.35); }
+  .playover .pt { font: 800 13.5px/1 var(--font); letter-spacing: .12em; text-transform: uppercase; color: var(--navy-2); background: #F2B43A;
+                  border-radius: 8px; padding: 9px 14px; box-shadow: 0 4px 14px rgba(0,0,0,0.3); }
+  .playover:hover .pi, .playover:focus-visible .pi { transform: scale(1.06); }
   .frame video, .frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; display: block; border: 0; background: #000; object-fit: contain; }
   video::cue { font-family: var(--font); font-weight: 600; background: rgba(15,20,30,0.82); color: #FFFFFF; line-height: 1.35; }
   .tools { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -79,7 +94,7 @@
   ol.chap svg { flex-shrink: 0; }
   ol.chap .tx { flex: 1; display: flex; flex-direction: column; }
   ol.chap b { color: var(--teal); font-size: 16px; font-weight: 800; }
-  ol.chap .d { font-size: 15px; font-weight: 500; }
+  ol.chap .d { font-size: 15.5px; font-weight: 500; }
   ol.chap .tm { flex-shrink: 0; display: inline-flex; align-items: center; gap: 5px; font-size: 13.5px; font-weight: 800; color: var(--navy);
          background: #FFFFFF; border: 1.5px solid #D5DAE0; border-radius: 999px; padding: 4px 10px; font-variant-numeric: tabular-nums; }
 
@@ -95,11 +110,13 @@
   .ask-mike { position: relative; overflow: hidden; background: var(--navy-2); color: #FFFFFF; border-radius: 16px; padding: 24px 20px; display: flex;
               flex-direction: column; align-items: center; gap: 6px; text-align: center; box-shadow: 0 0 0 4px rgba(242,180,58,0.14), 0 0 26px 4px rgba(242,180,58,0.22); }
   .ask-mike::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: var(--orange); }
-  .ask-mike .k { font-size: 13px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--teal-on-navy); }
+  .ask-mike .k { font-size: 13px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--teal-on-navy); text-wrap: balance; }
   .ask-mike .q { margin: 0; font-size: 22px; font-weight: 800; line-height: 1.25; color: var(--gold); text-wrap: balance; }
   .ask-mike .num { font-size: clamp(32px, 9vw, 44px); font-weight: 800; letter-spacing: .01em; color: #FFFFFF; text-decoration: none; line-height: 1.1; margin-top: 4px; }
-  .ask-mike .who { font-size: 15px; font-weight: 600; color: #C9D3DB; }
+  .ask-mike .who { font-size: 15px; font-weight: 600; color: #C9D3DB; text-wrap: balance; }
   .ask-mike .who b { color: #FFFFFF; }
+  .ask-mike .role { white-space: nowrap; }
+  @media (max-width: 480px) { .ask-mike .who b { display: block; } .ask-mike .sep { display: none; } }
   .ask-mike .em { font-size: 16px; font-weight: 700; color: var(--teal-on-navy); }
   .ask-mike p { margin: 8px 0 0; font-size: 15px; font-weight: 500; line-height: 1.5; color: #DDE7EA; max-width: 520px; }
   .ask-mike .btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 14px; }
@@ -108,6 +125,7 @@
   .dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 12px; }
   .dl a { display: flex; gap: 14px; align-items: center; padding: 16px; border-radius: 12px; background: var(--soft); color: var(--ink); text-decoration: none; border: 2px solid transparent; }
   .dl a:hover, .dl a:focus-visible { border-color: var(--teal-bright); outline: none; }
+  .dl .th { width: 62px; height: 80px; flex-shrink: 0; border-radius: 6px; object-fit: cover; box-shadow: 0 2px 8px rgba(31,39,53,0.22); background: #FFFFFF; }
   .dl .ic { width: 44px; height: 44px; border-radius: 10px; background: var(--teal-bright); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .dl .t { font-weight: 800; line-height: 1.25; }
   .dl .s { font-size: 13.5px; font-weight: 500; color: var(--muted); }
@@ -122,11 +140,71 @@
   .grid a img { width: 56px; height: 56px; border-radius: 10px; object-fit: cover; border: 2px solid #F2B43A; background: #FFFFFF; }
   .grid a:hover, .grid a:focus-visible { border-color: var(--teal-bright); outline: none; }
 
+  .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  h3 { margin: 0 0 8px; font-size: 17px; font-weight: 800; color: var(--teal-bright); }
+  .learn { display: flex; flex-direction: column; gap: 14px; }
+  .learn h2 { margin: 0; }
+  .learn .lead { margin: 0; font-size: 18px; font-weight: 700; line-height: 1.4; color: var(--navy); text-wrap: pretty; }
+  .about { background: var(--soft); border-radius: 14px; padding: 16px 18px; border-left: 5px solid var(--teal-bright); }
+  .about p { margin: 0; font-size: 16px; font-weight: 500; line-height: 1.55; text-wrap: pretty; }
+  .signs { display: flex; gap: 16px; align-items: flex-start; padding: 4px 2px; }
+  .signs .leg { width: 64px; height: auto; flex-shrink: 0; margin-top: 4px; }
+  ul.ticks { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 7px 22px; }
+  ul.ticks li { display: flex; gap: 8px; align-items: flex-start; font-size: 16px; font-weight: 500; line-height: 1.35; }
+  ul.ticks svg { flex-shrink: 0; margin-top: 1px; }
+  .learn-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  @media (min-width: 620px) { .learn-grid { grid-template-columns: 1.25fr 1fr; gap: 30px; align-items: start; }
+  }
+  .conv { background: var(--soft); border-radius: 14px; padding: 16px 18px; }
+  .solution { position: relative; overflow: hidden; border-radius: 16px; padding: 22px 20px 20px; color: #FFFFFF;
+              background: radial-gradient(circle at 92% 0%, rgba(51,197,200,0.20), rgba(51,197,200,0) 55%), var(--navy-2); }
+  .solution::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: var(--orange); }
+  .solution .k { font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
+  .solution h2 { margin: 2px 0 8px; font-size: clamp(22px, 5.8vw, 28px); font-style: italic; color: #33C5C8; }
+  .solution p { margin: 0 0 16px; font-size: 16px; font-weight: 500; line-height: 1.55; color: #E3EAEE; text-wrap: pretty; }
+  .tiles { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  @media (min-width: 620px) { .tiles { grid-template-columns: 1fr 1fr 1fr; } }
+  .tile { display: flex; flex-direction: column; gap: 4px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+          border-radius: 12px; padding: 14px 16px; }
+  .tile b { font-size: 16px; font-weight: 800; color: #33C5C8; }
+  .tile span { font-size: 14.5px; font-weight: 500; color: #DDE7EA; line-height: 1.45; }
+  .tile.dime { flex-direction: row; align-items: center; gap: 14px; }
+  .tile.dime img { width: 58px; height: 58px; flex-shrink: 0; }
+  .tile.dime div { display: flex; flex-direction: column; gap: 2px; }
+  .tile .big { font-size: 26px !important; font-weight: 800 !important; color: #FFFFFF !important; line-height: 1.1 !important; }
+  .meet { display: flex; flex-direction: column; gap: 14px; }
+  ul.badges { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); background: var(--soft); border-radius: 14px;
+              border-top: 3px solid var(--teal-bright); overflow: hidden; }
+  ul.badges li { display: flex; flex-direction: column; gap: 3px; padding: 12px 14px; border-left: 1px solid #DCE1E6; }
+  ul.badges li:first-child { border-left: 0; }
+  .bl { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--orange); line-height: 1.25; }
+  .bv { font-size: 14px; font-weight: 700; color: var(--navy); line-height: 1.3; }
+  @media (max-width: 480px) { ul.badges { grid-template-columns: 1fr; } ul.badges li { flex-direction: row; justify-content: space-between; align-items: baseline; gap: 10px;
+    border-left: 0; border-top: 1px solid #DCE1E6; padding: 11px 14px; } ul.badges li:first-child { border-top: 0; } .bv { text-align: right; } }
+  .bio p { margin: 0 0 10px; font-size: 16px; font-weight: 500; line-height: 1.6; text-wrap: pretty; }
+  .bio p:last-child { margin-bottom: 0; }
+  .edu-list { background: var(--soft); border-radius: 12px; }
+  .edu-list summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 13px 16px;
+                      font-size: 16px; font-weight: 800; color: var(--navy); }
+  .edu-list summary::-webkit-details-marker { display: none; }
+  .edu-list summary::after { content: ""; width: 9px; height: 9px; border-right: 2.5px solid var(--teal-bright); border-bottom: 2.5px solid var(--teal-bright);
+                             transform: rotate(45deg); margin: -4px 4px 0 0; transition: transform .15s; }
+  .edu-list[open] summary::after { transform: rotate(-135deg); margin-top: 4px; }
+  .edu-list dl { padding: 2px 16px 16px; }
+  .edu-list dl { margin: 0; display: flex; flex-direction: column; gap: 8px; }
+  .edu-list dl > div { display: flex; flex-direction: column; padding-left: 12px; border-left: 3px solid #D5DAE0; }
+  .edu-list dt { font-size: 14px; font-weight: 800; color: var(--teal-bright); }
+  .edu-list dd { margin: 0; font-size: 15px; font-weight: 500; line-height: 1.45; }
+  ul.expect { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  ul.expect li { display: flex; gap: 10px; align-items: flex-start; font-size: 16px; font-weight: 500; line-height: 1.45; }
+  ul.expect svg { flex-shrink: 0; margin-top: 1px; }
+  ul.expect b { color: var(--teal-bright); font-weight: 800; }
   .fine { margin: 0; font-size: 12.5px; color: var(--muted); line-height: 1.45; }
   footer { margin-top: 26px; background: var(--teal); color: var(--on-navy); }
   footer .wrap { padding-block: 18px calc(22px + var(--bar)); display: flex; flex-wrap: wrap; gap: 8px 28px; align-items: center; justify-content: space-between; font-weight: 700; }
   footer a { color: var(--on-navy); text-underline-offset: 3px; }
-  .loc { font-weight: 500; }
+  .loc { font-weight: 500; white-space: nowrap; }
+  @media (max-width: 480px) { footer .loc { display: block; margin-top: 2px; } footer .dot { display: none; } }
 
   .callbar { display: none; }
   @media (max-width: 820px) {
@@ -146,17 +224,23 @@
 </head>
 <body>
 <header class="band"><div class="wrap">
-  <div class="eyebrow">Patient Testimonial &middot; Center for Pain Management</div>
-  <h1>Hear From a <span class="cfp">Center for Pain</span> Patient</h1>
-  <p class="sub">Her SI Joint Fusion Story</p>
+  <div class="eyebrow">Patient Testimonial</div>
+  <h1>Hear From a<br><span class="cfp">Center for Pain</span> Patient</h1>
+  <p class="sub">Listen to her story.</p>
 </div></header>
+<div class="obar"><div class="wrap">
+  <p class="ot"><span class="nw">Considering SI joint fusion?</span> <span class="nw">Watch this first.</span></p>
+  <p class="os">Know what to expect from diagnosis to recovery, and come ready with your questions.</p>
+</div></div>
 <main><div class="wrap">
   <section class="player" id="watch" aria-label="Patient story video">
     <div class="frame"><video controls playsinline preload="metadata" poster="../poster.jpg" title="Patient story: SI joint fusion">
       <source src="../videos/cook.mp4" type="video/mp4">
       <track kind="captions" src="../captions.vtt" srclang="en" label="English">
-      Your browser can&#39;t play this video.
-    </video></div>
+      Your browser can’t play this video.
+    </video>
+      <button type="button" class="playover" id="playover" aria-label="Play her story, 4 minutes"><span class="pi"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5 L19 12 L8 18.5 Z" fill="#1F2735"/></svg></span><span class="pt">Watch her story &middot; 4 min</span></button>
+    </div>
     <div class="tools">
       <button type="button" class="chip" id="cc" aria-pressed="false"><svg width="20" height="18" viewBox="0 0 24 20" aria-hidden="true"><rect x="1" y="1" width="22" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10.5 7.6a3 3 0 1 0 0 4.8M18.5 7.6a3 3 0 1 0 0 4.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Captions <span class="st">Off</span></button>
       <button type="button" class="chip" id="share"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Share with family</button>
@@ -164,55 +248,68 @@
     </div>
   </section>
   <section aria-labelledby="hear">
-    <h2 id="hear">What you&#39;ll hear</h2>
+    <h2 id="hear">What you’ll hear</h2>
     <p class="hint">Tap a topic to jump to that part of her story.</p>
     <ol class="chap">
       <li><button type="button" data-t="17.2"><svg width="22" height="22" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#00B7BA"/><path d="M5.5 10.2 L8.6 13.2 L14.5 7.2" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="tx"><b>Her symptoms</b><span class="d">Low back pain that became burning leg pain</span></span><span class="tm" aria-label="Plays from 0:17">&#9654; 0:17</span></button></li>
       <li><button type="button" data-t="44.8"><svg width="22" height="22" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#00B7BA"/><path d="M5.5 10.2 L8.6 13.2 L14.5 7.2" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="tx"><b>Daily life</b><span class="d">Years of pain that limited her walking</span></span><span class="tm" aria-label="Plays from 0:45">&#9654; 0:45</span></button></li>
       <li><button type="button" data-t="91.0"><svg width="22" height="22" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#00B7BA"/><path d="M5.5 10.2 L8.6 13.2 L14.5 7.2" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="tx"><b>Finding the source</b><span class="d">How her SI joint was confirmed as the cause</span></span><span class="tm" aria-label="Plays from 1:31">&#9654; 1:31</span></button></li>
       <li><button type="button" data-t="127.5"><svg width="22" height="22" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#00B7BA"/><path d="M5.5 10.2 L8.6 13.2 L14.5 7.2" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="tx"><b>The procedure</b><span class="d">What treatment and recovery were like</span></span><span class="tm" aria-label="Plays from 2:08">&#9654; 2:08</span></button></li>
-      <li><button type="button" data-t="182.4"><svg width="22" height="22" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#00B7BA"/><path d="M5.5 10.2 L8.6 13.2 L14.5 7.2" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="tx"><b>Life after</b><span class="d">The everyday activities she&#x27;s back to doing</span></span><span class="tm" aria-label="Plays from 3:02">&#9654; 3:02</span></button></li>
+      <li><button type="button" data-t="182.4"><svg width="22" height="22" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#00B7BA"/><path d="M5.5 10.2 L8.6 13.2 L14.5 7.2" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="tx"><b>Life after</b><span class="d">The everyday activities she’s back to doing</span></span><span class="tm" aria-label="Plays from 3:02">&#9654; 3:02</span></button></li>
     </ol>
   </section>
-  <section class="doc" aria-label="Physician spotlight">
-    <img src="photo.jpg" alt="Dr. Andrew Cook" width="112" height="112">
-    <div>
-      <div class="k">Physician Spotlight</div>
-      <div class="n">Dr. Andrew Cook</div>
-      <div class="ti">Pain Management Specialist &middot; Center for Pain Management</div>
-      <div class="lo"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg><span>Indianapolis&nbsp;&middot; Brownsburg&nbsp;&middot; Avon&nbsp;&middot; Greenwood</span></div>
-      <a class="pf" href="https://www.americanpainconsortium.com/find-a-provider/andrew-cook-md/" target="_blank" rel="noopener">View Dr. Cook&#39;s profile</a>
+  <section class="learn" aria-labelledby="learnh">
+    <h2 id="learnh">Understanding SI joint pain</h2>
+    <p class="lead">Studies show the SI joint is the source of pain for roughly 15–30% of patients with persistent low back pain.</p>
+    <div class="about">
+      <h3>About the SI joint</h3>
+      <p>The SI joints absorb movement between the spine and pelvis. Aging, arthritis, injury, or pregnancy can leave the bones rubbing together — pain that often mimics a lower back or disc problem.</p>
+    </div>
+    <div class="learn-grid">
+    <div class="signs">
+      <img class="leg" src="../img/leg.png" alt="Leg illustration showing where SI joint pain is often felt: the buttock, back of the thigh and down the leg" width="64" height="328">
+      <div>
+        <h3>Common signs of SI joint pain</h3>
+        <ul class="ticks">
+          <li><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 L8.2 14.5 L16 6" fill="none" stroke="#00B7BA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Lower back pain</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 L8.2 14.5 L16 6" fill="none" stroke="#00B7BA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Isolated pain in one SI joint</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 L8.2 14.5 L16 6" fill="none" stroke="#00B7BA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Sciatic-like pain in buttocks or leg</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 L8.2 14.5 L16 6" fill="none" stroke="#00B7BA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Hip/pelvis/groin pain</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 L8.2 14.5 L16 6" fill="none" stroke="#00B7BA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reduced range of motion</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 L8.2 14.5 L16 6" fill="none" stroke="#00B7BA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Pain climbing stairs or running</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 L8.2 14.5 L16 6" fill="none" stroke="#00B7BA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Pain lying on one side</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 L8.2 14.5 L16 6" fill="none" stroke="#00B7BA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Leg numbness or weakness</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 L8.2 14.5 L16 6" fill="none" stroke="#00B7BA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Disrupted sitting patterns</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 L8.2 14.5 L16 6" fill="none" stroke="#00B7BA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Difficulty moving from sitting to standing</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 L8.2 14.5 L16 6" fill="none" stroke="#00B7BA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Sleep disturbances due to pain</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="conv">
+      <h3>Conventional care not working?</h3>
+      <ul class="ticks">
+        <li><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 L8.2 14.5 L16 6" fill="none" stroke="#00B7BA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Physical therapy</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 L8.2 14.5 L16 6" fill="none" stroke="#00B7BA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Chiropractic care</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 L8.2 14.5 L16 6" fill="none" stroke="#00B7BA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Medication</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 L8.2 14.5 L16 6" fill="none" stroke="#00B7BA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Therapeutic injections</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 L8.2 14.5 L16 6" fill="none" stroke="#00B7BA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Radiofrequency ablation (RFA)</span></li>
+      </ul>
+    </div>
     </div>
   </section>
-  <section class="next" aria-labelledby="nextlabel">
-    <div class="label" id="nextlabel">Your next step</div>
-    <div class="ask">Ask Dr. Cook whether SI joint fusion is right for you.</div>
-    <div class="phone">Call <a href="tel:+13177067246">317-706-7246</a> to schedule an evaluation.</div>
-    <a class="btn call" href="tel:+13177067246"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg> Call to Schedule</a>
-  </section>
-  <section class="ask-mike" aria-labelledby="askq">
-    <div class="k">After your Center for Pain appointment</div>
-    <h2 id="askq" class="q">Have questions? Speak with someone who can answer them.</h2>
-    <a class="num" href="tel:+13173400342">317-340-0342</a>
-    <div class="who"><b>Mike DeFazio</b> &middot; Manufacturer&#39;s Representative</div>
-    <a class="em" href="mailto:Mike@Impact-Surgical.com">Mike@Impact-Surgical.com</a>
-    <p>Call or email with any questions you or your family have about the procedure, your pain diagnosis, recovery or what to expect. We can also connect you with a local patient.</p>
-    <div class="btns">
-      <a class="btn call" href="tel:+13173400342"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg> Call Mike</a>
-      <a class="btn out" href="mailto:Mike@Impact-Surgical.com">Email Mike</a>
-      <a class="btn out" href="../mike-defazio.vcf" download="Mike DeFazio.vcf"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M4 21c1-4 4.5-6 8-6s7 2 8 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg> Save Contact</a>
-    </div>
-  </section>
-  <section aria-labelledby="dlh">
-    <h2 id="dlh">Brochures to view or share</h2>
-    <div class="dl">
-      <a href="now-offering-brochure.pdf" target="_blank" rel="noopener"><span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"/><path d="M14 3v5h5M9 13h6M9 17h6" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><span class="t">Dr. Andrew Cook &middot; Now Offering Brochure</span><br><span class="s">SI joint fusion at Center for Pain Management (PDF)</span></span></a>
-      <a href="patient-story-handout.pdf" target="_blank" rel="noopener"><span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"/><path d="M14 3v5h5M9 13h6M9 17h6" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><span class="t">Patient Testimonial Handout</span><br><span class="s">This patient story and how to reach us (PDF)</span></span></a>
+  <section class="solution" aria-labelledby="solh">
+    <div class="k">Now Offering</div>
+    <h2 id="solh">Minimally Invasive SIJ Fusion</h2>
+    <p>There’s good news! We now offer Minimally Invasive SIJ Fusion, a procedure that gets you back to life faster. It minimizes discomfort and recovery time, helping you regain control of your pain and get back to the activities you love.</p>
+    <div class="tiles">
+      <div class="tile"><b>Safe Posterior Approach</b><span>Designed to avoid vital anatomy such as nerves and muscles</span></div>
+      <div class="tile dime"><img src="../img/dime.png" alt="" width="64" height="64"><div><b>Incision as small as a dime</b><span class="big">2 cm</span></div></div>
+      <div class="tile"><b>Easier Recovery</b><span>Allows patients to have less procedure soreness and a quicker recovery</span></div>
     </div>
   </section>
   <section aria-labelledby="eduh">
     <h2 id="eduh">Educational videos</h2>
-    <p class="edu-note">General information about SI joint pain and treatment, the same videos linked on the Now Offering brochure.</p>
+    <p class="edu-note">General information about SI joint pain and treatment. These are the same videos the QR codes on the Now Offering brochure open.</p>
     <div class="edu">
       <figure>
         <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/moFgtJDI0w0?rel=0&amp;playsinline=1" title="SI Joint Education &middot; Video 1" loading="lazy"
@@ -228,10 +325,77 @@
       </figure>
     </div>
   </section>
-  <p class="fine">Patient testimonial. Individual results vary, and this patient&#39;s experience may not be typical. Talk with your physician about the benefits and risks of any procedure. This video is for general information and is not medical advice.</p>
+  <section class="meet" aria-labelledby="meeth">
+    <h2 id="meeth" class="vh">Meet Dr. Cook</h2>
+    <div class="doc">
+      <img src="photo.jpg" alt="Dr. Andrew Cook" width="112" height="112">
+      <div>
+        <div class="k">Physician Spotlight</div>
+        <div class="n">Dr. Andrew Cook</div>
+        <div class="ti">Pain Management Specialist &middot; Center for Pain Management</div>
+        <div class="lo"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg><span>Indianapolis&nbsp;&middot; Brownsburg&nbsp;&middot; Avon&nbsp;&middot; Greenwood</span></div>
+        <a class="pf" href="https://www.americanpainconsortium.com/find-a-provider/andrew-cook-md/" target="_blank" rel="noopener">View Dr. Cook’s profile</a>
+      </div>
+    </div>
+    <ul class="badges">
+        <li><span class="bl">BOARD-CERTIFIED</span><span class="bv">Anesthesiology &amp; Pain</span></li>
+        <li><span class="bl">FELLOWSHIP-TRAINED</span><span class="bv">University of Kentucky</span></li>
+        <li><span class="bl">SPECIALTY FOCUS</span><span class="bv">Neuromodulation</span></li>
+    </ul>
+    <div class="bio">
+    <p>Dr. Andrew Cook is a board-certified anesthesiologist and pain medicine physician who completed his fellowship at the University of Kentucky. In 2022 he became the first physician at Center for Pain Management’s Brownsburg office.</p>
+    <p>He takes a multidisciplinary approach built around minimally invasive procedures, including neuromodulation and SI joint fusion, to relieve pain and restore function.</p>
+    </div>
+    <details class="edu-list">
+      <summary>Education &amp; training</summary>
+      <dl>
+        <div><dt>Medical School</dt><dd>University of Miami Miller School of Medicine, Miami, FL</dd></div>
+        <div><dt>Residency</dt><dd>Anesthesiology, University of Miami / Jackson Memorial Hospital</dd></div>
+        <div><dt>Fellowship</dt><dd>Pain Medicine, University of Kentucky, Lexington, KY</dd></div>
+        <div><dt>Board Certification</dt><dd>Anesthesiology &amp; Pain Medicine</dd></div>
+      </dl>
+    </details>
+  </section>
+  <section aria-labelledby="exph">
+    <h2 id="exph">Patient expectations</h2>
+    <ul class="expect">
+      <li><svg width="22" height="22" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#00B7BA"/><path d="M5.5 10.2 L8.6 13.2 L14.5 7.2" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Compassionate Care:</b> Care focused on your comfort and well-being.</span></li>
+      <li><svg width="22" height="22" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#00B7BA"/><path d="M5.5 10.2 L8.6 13.2 L14.5 7.2" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Thorough Evaluation:</b> We review your history and symptoms to tailor your plan.</span></li>
+      <li><svg width="22" height="22" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#00B7BA"/><path d="M5.5 10.2 L8.6 13.2 L14.5 7.2" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Clear Communication:</b> We explain your diagnosis and treatment options.</span></li>
+      <li><svg width="22" height="22" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#00B7BA"/><path d="M5.5 10.2 L8.6 13.2 L14.5 7.2" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Collaborative Approach:</b> Your input shapes your plan and health goals.</span></li>
+      <li><svg width="22" height="22" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#00B7BA"/><path d="M5.5 10.2 L8.6 13.2 L14.5 7.2" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Supportive Environment:</b> Your needs come first, every step of the way.</span></li>
+    </ul>
+  </section>
+  <section class="next" aria-labelledby="nextlabel">
+    <div class="label" id="nextlabel">Your next step</div>
+    <div class="ask">Ask Dr. Cook whether SI joint fusion is right for you.</div>
+    <div class="phone">Call to schedule an evaluation.</div>
+    <a class="btn call" href="tel:+13177067246"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg> Call 317-706-7246</a>
+  </section>
+  <section class="ask-mike" aria-labelledby="askq">
+    <div class="k">After your Center for Pain appointment</div>
+    <h2 id="askq" class="q">Have questions? Speak with someone who can answer them.</h2>
+    <a class="num" href="tel:+13173400342">317-340-0342</a>
+    <div class="who"><b>Mike DeFazio</b><span class="sep"> &middot; </span><span class="role">Manufacturer’s Representative</span></div>
+    <a class="em" href="mailto:Mike@Impact-Surgical.com">Mike@Impact-Surgical.com</a>
+    <p>Call or email with any questions you or your family have about the procedure, your pain diagnosis, recovery or what to expect. We can also connect you with a local patient.</p>
+    <div class="btns">
+      <a class="btn call" href="tel:+13173400342"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg> Call Mike</a>
+      <a class="btn out" href="mailto:Mike@Impact-Surgical.com">Email Mike</a>
+      <a class="btn out" href="../mike-defazio.vcf" download="Mike DeFazio.vcf"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M4 21c1-4 4.5-6 8-6s7 2 8 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg> Save Contact</a>
+    </div>
+  </section>
+  <section aria-labelledby="dlh">
+    <h2 id="dlh">Brochures to view or share</h2>
+    <div class="dl">
+      <a href="now-offering-brochure.pdf" target="_blank" rel="noopener"><img class="th" src="now-offering-brochure-thumb.jpg" alt="" width="62" height="80"><span><span class="t">Dr. Andrew Cook &middot; Now Offering Brochure</span><br><span class="s">SI joint fusion at Center for Pain Management (PDF)</span></span></a>
+      <a href="patient-story-handout.pdf" target="_blank" rel="noopener"><img class="th" src="patient-story-handout-thumb.jpg" alt="" width="62" height="80"><span><span class="t">Patient Testimonial Handout</span><br><span class="s">Her story and how to reach us (PDF)</span></span></a>
+    </div>
+  </section>
+  <p class="fine">Patient testimonial. Individual results vary, and this patient’s experience may not be typical. Talk with your physician about the benefits and risks of any procedure. This video is for general information and is not medical advice.</p>
 </div></main>
 <footer><div class="wrap">
-  <div>Center for Pain Management <span class="loc">&middot; <a href="tel:+13177067246">317-706-7246</a></span></div>
+  <div>Center for Pain Management <span class="loc"><span class="dot">&middot; </span><a href="tel:+13177067246">317-706-7246</a></span></div>
   <a href="https://www.indypain.com" target="_blank" rel="noopener">www.IndyPain.com</a>
 </div></footer>
 <nav class="callbar" aria-label="Call">
@@ -251,6 +415,13 @@
     syncCC();
   } else if (cc) { cc.hidden = true; }
 
+  var po = document.getElementById('playover');
+  if (po) {
+    v.controls = false;   // clean poster with one big button; the player's own controls appear once it starts
+    po.addEventListener('click', function () { v.play().catch(function () {}); });
+    v.addEventListener('play', function () { po.hidden = true; v.controls = true; });
+    v.addEventListener('ended', function () { po.hidden = false; v.controls = false; });
+  }
   var chaps = [].slice.call(document.querySelectorAll('[data-t]'));
   function seek(t) {
     document.getElementById('watch').scrollIntoView({ block: 'start' });
