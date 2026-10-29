@@ -13,6 +13,7 @@ cp "$HERE"/brochures/*.pdf         $H/handout/brochures/
 cp "$HERE"/assets/headshots/*.jpg  $H/handout/up/
 cp "$HERE"/assets/qr/*             $H/handout/qr/
 cp "$HERE"/assets/fonts/*.woff2    $H/fontsrc/package/files/
+cp "$HERE"/assets/fonts/LICENSE      $H/fontsrc/package/LICENSE
 cp "$HERE"/web/captions.vtt "$HERE"/web/brochure_bios.json "$HERE"/web/poster_hd.jpg $H/web/
 cp -r "$HERE"/web/img "$HERE"/web/share $H/web/
 cp "$HERE"/print/*.pdf             $H/handout/final/PRINT/

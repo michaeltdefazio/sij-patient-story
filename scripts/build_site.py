@@ -105,19 +105,22 @@ CSS = """
   .doc .ti { font-size: 14px; font-weight: 600; color: var(--teal-on-navy); }
   .doc .lo { margin-top: 6px; display: flex; gap: 6px; align-items: flex-start; font-size: 14px; font-weight: 600; color: #DDE7EA; }
   .doc .lo svg { flex-shrink: 0; margin-top: 2px; color: var(--gold); }
-  .doc .pf { display: inline-block; margin-top: 10px; font-size: 14px; font-weight: 700; color: #FFFFFF; text-decoration: underline; text-decoration-color: var(--gold);
+  .doc .pf { display: inline-flex; align-items: center; min-height: 44px; margin-top: 2px; font-size: 14px; font-weight: 700; color: #FFFFFF; text-decoration: underline; text-decoration-color: var(--gold);
              text-underline-offset: 4px; text-decoration-thickness: 2px; }
   @media (max-width: 400px) { .doc { gap: 14px; padding: 18px 16px; } .doc img { width: 92px; height: 92px; } }
 
   .hint { margin: -4px 0 12px; font-size: 14.5px; color: var(--muted); font-weight: 500; }
   ol.chap { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-  ol.chap button, ol.chap .row { width: 100%; display: flex; gap: 12px; align-items: center; text-align: left; padding: 12px 14px; border-radius: 12px;
+  ol.chap button, ol.chap .row { width: 100%; display: grid; grid-template-columns: 22px 1fr auto; column-gap: 12px; row-gap: 1px; align-items: center;
+         text-align: left; padding: 11px 14px; border-radius: 12px;
          border: 2px solid transparent; background: var(--soft); color: var(--ink); font: inherit; cursor: pointer; }
   ol.chap .row { cursor: default; }
   ol.chap button:hover { border-color: var(--teal-bright); }
   ol.chap button.now { border-color: var(--teal-bright); background: #E3F6F6; }
-  ol.chap svg { flex-shrink: 0; }
-  ol.chap .tx { flex: 1; display: flex; flex-direction: column; }
+  ol.chap svg { grid-row: 1 / span 2; grid-column: 1; align-self: center; }
+  ol.chap b { grid-row: 1; grid-column: 2; line-height: 1.3; }
+  ol.chap .tm { grid-row: 1; grid-column: 3; }
+  ol.chap .d { grid-row: 2; grid-column: 2 / span 2; line-height: 1.4; }
   ol.chap b { color: var(--teal); font-size: 16px; font-weight: 800; }
   ol.chap .d { font-size: 15.5px; font-weight: 500; }
   ol.chap .tm { flex-shrink: 0; display: inline-flex; align-items: center; gap: 5px; font-size: 13.5px; font-weight: 800; color: var(--navy);
@@ -137,12 +140,12 @@ CSS = """
   .ask-mike::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: var(--orange); }
   .ask-mike .k { font-size: 13px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--teal-on-navy); text-wrap: balance; }
   .ask-mike .q { margin: 0; font-size: 22px; font-weight: 800; line-height: 1.25; color: var(--gold); text-wrap: balance; }
-  .ask-mike .num { font-size: clamp(32px, 9vw, 44px); font-weight: 800; letter-spacing: .01em; color: #FFFFFF; text-decoration: none; line-height: 1.1; margin-top: 4px; }
+  .ask-mike .num { display: inline-block; padding: 4px 10px; font-size: clamp(32px, 9vw, 44px); font-weight: 800; letter-spacing: .01em; color: #FFFFFF; text-decoration: none; line-height: 1.1; margin-top: 4px; }
   .ask-mike .who { font-size: 15px; font-weight: 600; color: #C9D3DB; text-wrap: balance; }
   .ask-mike .who b { color: #FFFFFF; }
   .ask-mike .role { white-space: nowrap; }
   @media (max-width: 480px) { .ask-mike .who b { display: block; } .ask-mike .sep { display: none; } }
-  .ask-mike .em { font-size: 16px; font-weight: 700; color: var(--teal-on-navy); }
+  .ask-mike .em { display: inline-flex; align-items: center; min-height: 44px; padding: 0 8px; font-size: 16px; font-weight: 700; color: var(--teal-on-navy); }
   .ask-mike p { margin: 8px 0 0; font-size: 15px; font-weight: 500; line-height: 1.5; color: #DDE7EA; max-width: 520px; }
   .ask-mike .btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 14px; }
   .ask-mike .btn.out { background: transparent; color: #FFFFFF; border: 2px solid var(--teal-on-navy); }
@@ -155,6 +158,11 @@ CSS = """
   .dl .t { font-weight: 800; line-height: 1.25; }
   .dl .s { font-size: 13.5px; font-weight: 500; color: var(--muted); }
   .edu { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 14px; }
+  .yt { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center;
+        background: radial-gradient(circle at 70% 20%, rgba(51,197,200,0.25), rgba(51,197,200,0) 60%), var(--navy-2); }
+  .yt img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .yt .pi { position: relative; width: 60px; height: 60px; border-radius: 50%; background: rgba(255,255,255,0.95); display: flex; align-items: center;
+            justify-content: center; padding-left: 4px; box-shadow: 0 6px 20px rgba(0,0,0,0.35); }
   .edu figure { margin: 0; display: flex; flex-direction: column; gap: 8px; }
   .edu figcaption { font-size: 15px; font-weight: 700; }
   .edu-note { margin: 0 0 12px; font-size: 15px; color: var(--muted); }
@@ -202,7 +210,7 @@ CSS = """
               border-top: 3px solid var(--teal-bright); overflow: hidden; }
   ul.badges li { display: flex; flex-direction: column; gap: 3px; padding: 12px 14px; border-left: 1px solid #DCE1E6; }
   ul.badges li:first-child { border-left: 0; }
-  .bl { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--orange); line-height: 1.25; }
+  .bl { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--orange); line-height: 1.25; }
   .bv { font-size: 14px; font-weight: 700; color: var(--navy); line-height: 1.3; }
   @media (max-width: 480px) { ul.badges { grid-template-columns: 1fr; } ul.badges li { flex-direction: row; justify-content: space-between; align-items: baseline; gap: 10px;
     border-left: 0; border-top: 1px solid #DCE1E6; padding: 11px 14px; } ul.badges li:first-child { border-top: 0; } .bv { text-align: right; } }
@@ -227,8 +235,18 @@ CSS = """
   .fine { margin: 0; font-size: 12.5px; color: var(--muted); line-height: 1.45; }
   footer { margin-top: 26px; background: var(--teal); color: var(--on-navy); }
   footer .wrap { padding-block: 18px calc(22px + var(--bar)); display: flex; flex-wrap: wrap; gap: 8px 28px; align-items: center; justify-content: space-between; font-weight: 700; }
-  footer a { color: var(--on-navy); text-underline-offset: 3px; }
+  footer a { display: inline-flex; align-items: center; min-height: 44px; color: var(--on-navy); text-underline-offset: 3px; }
   .loc { font-weight: 500; white-space: nowrap; }
+  @media (max-width: 480px) {
+    .band .wrap { padding-block: 16px 18px; gap: 4px; }
+    .eyebrow { font-size: 12px; }
+    h1 { font-size: clamp(23px, 6.6vw, 28px); }
+    .sub { font-size: 15px; margin-top: 0; }
+    .obar .wrap { padding-block: 10px 12px; gap: 2px; }
+    .obar .ot { font-size: 17px; }
+    .obar .os { font-size: 13px; line-height: 1.35; }
+    main .wrap { padding-block: 14px 8px; gap: 26px; }
+  }
   @media (max-width: 480px) { footer .loc { display: block; margin-top: 2px; } footer .dot { display: none; } }
 
   .callbar { display: none; }
@@ -238,17 +256,27 @@ CSS = """
                padding: 10px max(12px, env(safe-area-inset-left)) calc(10px + env(safe-area-inset-bottom)); box-shadow: 0 -4px 18px rgba(31,39,53,0.16); }
     .callbar a { flex: 1; min-height: 50px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 12px;
                  text-decoration: none; font: 800 15px/1.15 var(--font); text-align: center; }
-    .callbar a small { font-size: 12px; font-weight: 600; }
+    .callbar a small { font-size: 13px; font-weight: 600; }
     .callbar .a { background: var(--orange); color: var(--navy-2); }
     .callbar .b { background: var(--navy-2); color: #FFFFFF; }
     .callbar .b small { color: var(--teal-on-navy); }
   }
   @media (max-width: 430px) { .chip { font-size: 14.5px; padding: 8px 11px; gap: 6px; } .tools { gap: 6px; } }
   @media (max-width: 380px) { .callbar a { font-size: 13.5px; } }
+  @media (max-width: 340px) { .callbar .lg { display: none; } }
 """
 
 JS = """
 (function () {
+  [].forEach.call(document.querySelectorAll('.yt'), function (b) {
+    b.addEventListener('click', function () {
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.id + '?autoplay=1&rel=0&playsinline=1';
+      f.title = b.dataset.title; f.allowFullscreen = true; f.referrerPolicy = 'strict-origin-when-cross-origin';
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen; web-share';
+      b.replaceWith(f);
+    });
+  });
   var v = document.querySelector('video'); if (!v) return;
   var tr = v.textTracks && v.textTracks[0];
   var cc = document.getElementById('cc');
@@ -296,10 +324,16 @@ JS = """
 PHONES = {'rutledge': '765-807-2780'}
 def tel(n): return 'tel:+1' + n.replace('-', '')
 
+# Montserrat is self-hosted (SIL Open Font License, fonts/OFL.txt): no extra connections to Google on a slow cell signal.
+FONTS = [(400, 'normal'), (500, 'normal'), (600, 'normal'), (700, 'normal'), (800, 'normal'), (600, 'italic'), (800, 'italic')]
+def fontfaces(rel):
+    return ''.join(f"@font-face{{font-family:'Montserrat';font-style:{st};font-weight:{w};font-display:swap;"
+                   f"src:url('{rel}fonts/montserrat-latin-{w}-{st}.woff2') format('woff2')}}" for w, st in FONTS)
+
 def page(title, body, rel, desc, og_img, og_url, callbar=True, script=True, phone='317-706-7246'):
     bar = (f'''<nav class="callbar" aria-label="Call">
   <a class="a" href="{tel(phone)}">Call to Schedule<small>{phone}</small></a>
-  <a class="b" href="tel:+13173400342">Questions? Ask Mike<small>317-340-0342</small></a>
+  <a class="b" href="tel:+13173400342"><span><span class="lg">Questions? </span>Ask Mike</span><small>317-340-0342</small></a>
 </nav>''' if callbar else '')
     return f"""<!doctype html>
 <html lang="en">
@@ -321,10 +355,10 @@ def page(title, body, rel, desc, og_img, og_url, callbar=True, script=True, phon
 <meta name="theme-color" content="#293242">
 <link rel="icon" href="{rel}favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="{rel}apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600;1,800&display=swap">
-<style>{CSS}</style>
+<link rel="preload" href="{rel}fonts/montserrat-latin-800-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{rel}fonts/montserrat-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+{('<link rel="preload" href="' + rel + 'poster.jpg" as="image" fetchpriority="high">') if script else ''}
+<style>{fontfaces(rel)}{CSS}</style>
 </head>
 <body>
 <header class="band"><div class="wrap">
@@ -355,11 +389,11 @@ def fmt(t):
 
 def chapters(interactive):
     if interactive:
-        lis = '\n'.join(f'      <li><button type="button" data-t="{t}">{CHECK}<span class="tx"><b>{h}</b><span class="d">{html.escape(d)}</span></span>'
-                        f'<span class="tm" aria-label="Plays from {fmt(t)}">&#9654; {fmt(t)}</span></button></li>' for h, d, t in CHAPTERS)
+        lis = '\n'.join(f'      <li><button type="button" data-t="{t}">{CHECK}<b>{h}</b>'
+                        f'<span class="tm" aria-label="Plays from {fmt(t)}">&#9654; {fmt(t)}</span><span class="d">{html.escape(d)}</span></button></li>' for h, d, t in CHAPTERS)
         hint = '\n    <p class="hint">Tap a topic to jump to that part of her story.</p>'
     else:
-        lis = '\n'.join(f'      <li><div class="row">{CHECK}<span class="tx"><b>{h}</b><span class="d">{html.escape(d)}</span></span></div></li>' for h, d, t in CHAPTERS)
+        lis = '\n'.join(f'      <li><div class="row">{CHECK}<b>{h}</b><span class="d">{html.escape(d)}</span></div></li>' for h, d, t in CHAPTERS)
         hint = ''
     return f'''  <section aria-labelledby="hear">
     <h2 id="hear">What you’ll hear</h2>{hint}
@@ -404,7 +438,7 @@ def learn():
     </div>
     <div class="learn-grid">
     <div class="signs">
-      <img class="leg" src="../img/leg.png" alt="Leg illustration showing where SI joint pain is often felt: the buttock, back of the thigh and down the leg" width="64" height="328">
+      <img class="leg" loading="lazy" decoding="async" src="../img/leg.png" alt="Leg illustration showing where SI joint pain is often felt: the buttock, back of the thigh and down the leg" width="64" height="328">
       <div>
         <h3>Common signs of SI joint pain</h3>
         <ul class="ticks">
@@ -425,7 +459,7 @@ def solution():
     tiles = []
     for t, d in SOLUTION:
         if t.startswith('Incision'):
-            tiles.append(f'''      <div class="tile dime"><img src="../img/dime.png" alt="" width="64" height="64"><div><b>{t}</b><span class="big">{d}</span></div></div>''')
+            tiles.append(f'''      <div class="tile dime"><img src="../img/dime.png" alt="" width="64" height="64" loading="lazy" decoding="async"><div><b>{t}</b><span class="big">{d}</span></div></div>''')
         else:
             tiles.append(f'''      <div class="tile"><b>{t}</b><span>{d}</span></div>''')
     tiles = '\n'.join(tiles)
@@ -462,7 +496,7 @@ def meet(key, full, short, loc, slug):
     return f'''  <section class="meet" aria-labelledby="meeth">
     <h2 id="meeth" class="vh">Meet {short}</h2>
     <div class="doc">
-      <img src="photo.jpg" alt="{full}" width="112" height="112">
+      <img src="photo.jpg" alt="{full}" width="112" height="112" loading="lazy" decoding="async">
       <div>
         <div class="k">Physician Spotlight</div>
         <div class="n">{full}</div>
@@ -521,7 +555,7 @@ def downloads(key, full, d):
     if not items:
         return ''
     for f, *_ in items: thumb(d / f, d / (f.replace('.pdf', '') + '-thumb.jpg'))
-    cards = '\n'.join(f'      <a href="{f}" target="_blank" rel="noopener"><img class="th" src="{f.replace(".pdf", "")}-thumb.jpg" alt="" width="62" height="80">'
+    cards = '\n'.join(f'      <a href="{f}" target="_blank" rel="noopener"><img class="th" src="{f.replace(".pdf", "")}-thumb.jpg" alt="" width="62" height="80" loading="lazy" decoding="async">'
                       f'<span><span class="t">{t}</span><br><span class="s">{sub}</span></span></a>' for f, t, sub in items)
     return f'''  <section aria-labelledby="dlh">
     <h2 id="dlh">Brochures to view or share</h2>
@@ -535,9 +569,9 @@ EDU = [('moFgtJDI0w0', 'SI Joint Patient Education &middot; Part 1'), ('EsVReai9
 
 def edu_videos():
     figs = '\n'.join(f'''      <figure>
-        <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/{v}?rel=0&amp;playsinline=1" title="{t}" loading="lazy"
-          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <div class="frame"><button type="button" class="yt" data-id="{v}" data-title="{t}" aria-label="Play video: {t}">
+          <img src="https://i.ytimg.com/vi/{v}/hqdefault.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()">
+          <span class="pi"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5 L19 12 L8 18.5 Z" fill="#1F2735"/></svg></span></button></div>
         <figcaption>{t}</figcaption>
       </figure>''' for v, t in EDU)
     return f'''  <section aria-labelledby="eduh">
@@ -581,6 +615,9 @@ def build():
     shutil.copy('/home/claude/web/poster_hd.jpg', OUT / 'poster.jpg')   # 1280x720 frame from the full-quality video
     shutil.copy('/home/claude/web/captions.vtt', OUT / 'captions.vtt')
     shutil.copytree('/home/claude/web/img', OUT / 'img')
+    (OUT / 'fonts').mkdir()
+    for w, st in FONTS: shutil.copy(f'/home/claude/fontsrc/package/files/montserrat-latin-{w}-{st}.woff2', OUT / 'fonts')
+    shutil.copy('/home/claude/fontsrc/package/LICENSE', OUT / 'fonts' / 'OFL.txt')
     for f in ('favicon.svg', 'apple-touch-icon.png'):
         shutil.copy(f'/home/claude/web/share/{f}', OUT / f)
     shutil.copy('/home/claude/web/share/root.jpg', OUT / 'share.jpg')
