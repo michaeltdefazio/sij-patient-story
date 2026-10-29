@@ -39,6 +39,7 @@ Publish: copy `/home/claude/web/gh/sij-patient-story/` over a clone of `main` (k
 - Patient's words are never changed. The interview is Dr. Rutledge's patient. No other doctor is paired with the video in link previews.
 
 ## Open items
-- **Old Dr. Rutledge QR (10 early copies):** points to the old claude.ai page. Before finalizing, offer to turn that page into a "tap here for the updated page" link to /rutledge/. Keep that claude.ai page shared until then.
+- ~~Old Dr. Rutledge QR (10 early copies)~~: resolved 2026-10-29. Mike pulled those copies; every handout in circulation uses the github.io QR codes.
 - Optional: visit counter per doctor page (needs a free analytics account).
-- Optional: real titles for the two brochure education videos (currently "SI Joint Patient Education · Part 1/2").
+- Optional: real titles for the two brochure education videos (currently "SI Joint Patient Education · Part 1/2")
+- Optional: Dr. Khan, Dr. Romo, Dr. Wellington (other CFPM physicians) if Mike wants them added.
