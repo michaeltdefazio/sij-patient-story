@@ -29,7 +29,7 @@ async def main():
             h = re.sub(LOC_RE, (r'\1' if loc else ''), body, flags=re.S)
             h = h.replace('{{dr}}', full).replace('{{drShort}}', short).replace('{{loc}}', loc.replace(' | ', '\u00a0\u00b7 '))
             h = h.replace('{{photo}}', f'file:///home/claude/handout/up/dr_{k}.jpg').replace('{{qr}}', f'file:///home/claude/handout/qr/qr_{k}.png')
-            h = h.replace('/_blob/86ee2e1c30b955a7174b69074d58a175', 'file:///home/claude/handout/up/patient_story_still_crop3.jpg')
+            h = h.replace('/_blob/86ee2e1c30b955a7174b69074d58a175', 'file:///home/claude/handout/up/patient_story_still_crop4.jpg')
             # Scheduling line as printed on each doctor's Now Offering brochure (Dr. Rutledge: Lafayette office).
             if key == 'Rutledge': h = h.replace('317-706-7246', '765-807-2780')
             assert '{{' not in h and 'sc-if' not in h, key
