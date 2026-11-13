@@ -13,6 +13,7 @@
   var count = document.getElementById('list-count');
   var floatBtn = document.getElementById('float-list');
   var listBox = document.getElementById('list');
+  var actions = document.getElementById('list-actions');
   var inView = false, total = 0;
   var txt = function (s) { return String(s).replace(/\s+/g, ' ').trim(); };
   var plain = function () {
@@ -27,6 +28,7 @@
   var render = function () {
     var d = plain(), n = d.bring.length + d.ask.length;
     total = n;
+    if (actions) actions.hidden = !n;
     count.textContent = n ? '(' + n + ')' : '';
     if (floatBtn) { floatBtn.textContent = 'My list · ' + n; syncFloat(); }
     out.textContent = '';

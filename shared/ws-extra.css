@@ -128,3 +128,16 @@ label.pick input:focus-visible { outline: 3px solid var(--orange); outline-offse
 
 /* links inside the call-your-team alert */
 .alert a { color: var(--navy); font-weight: 800; text-underline-offset: 3px; }
+
+/* ---- polish pass ---- */
+.btn-row[hidden] { display: none; }
+.guides { display: flex; flex-direction: column; gap: 18px; }
+.btn-row.three { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.btn-row.three .btn.navy, .btn-row.three .toast { grid-column: 1 / -1; }
+@media (min-width: 560px) { .btn-row.three { grid-template-columns: repeat(3, 1fr); } .btn-row.three .btn.navy { grid-column: auto; } }
+.tools-note .chip { flex: 0 0 auto; }
+.chip .ic-s { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+section.group + section.group { margin-top: 20px; }
+.group h3 { color: #007F82; }
+.lcard address { flex: 1 0 auto; }
+.lcard a { margin-top: auto; }

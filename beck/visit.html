@@ -20,8 +20,8 @@
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="preload" href="../fonts/montserrat-latin-800-italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../fonts/montserrat-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../shared/ws.css?v=1">
-<link rel="stylesheet" href="../shared/ws-extra.css?v=1">
+<link rel="stylesheet" href="../shared/ws.css?v=2">
+<link rel="stylesheet" href="../shared/ws-extra.css?v=2">
 </head>
 <body>
 <header class="band no-print"><div class="wrap">
@@ -106,7 +106,7 @@
       <div class="print-only"><h1>My list for my visit with Dr. Jeffrey Beck</h1><p>Wellspring Pain Solutions · 812-376-0700 · Columbus, Bloomington, Greenwood</p></div>
       <h2 id="ml" class="no-print">My list <span id="list-count"></span></h2>
       <div id="mylist-body" aria-live="polite"></div>
-      <div class="btn-row actions no-print">
+      <div class="btn-row actions no-print" id="list-actions" hidden>
         <button type="button" class="btn navy" id="share-list" hidden>Share my list</button>
         <button type="button" class="btn ghost" id="copy-list">Copy my list</button>
         <button type="button" class="btn ghost" id="print-list">Print my list</button>
@@ -139,6 +139,6 @@
   <a class="a" href="tel:+18123760700">Call to Schedule<small>812-376-0700</small></a>
   <a class="b" href="tel:+13173400342"><span><span class="lg">Questions? </span>Ask Mike</span><small>317-340-0342</small></a>
 </nav>
-<script src="../shared/visit.js?v=1" defer></script>
+<script src="../shared/visit.js?v=2" defer></script>
 </body>
 </html>
