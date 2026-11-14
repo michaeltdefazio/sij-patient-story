@@ -292,3 +292,15 @@ label.opt.dis input { cursor: not-allowed; }
   .print-only h1 { font-size: 17pt; }
   .print-only p { font-size: 10pt; margin-bottom: 6pt; }
 }
+
+/* SiJoin implant visual (home, Now Offering panel) */
+.imp { margin: 18px 0 0; }
+.imp h3 { margin: 0 0 10px; font-size: 16px; font-weight: 800; color: #33C5C8; }
+.imp-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.imp-card { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 8px; background: #FFFFFF; border-radius: 14px; padding: 14px 6px 12px; text-align: center; }
+.imp-card img { display: block; width: auto; height: 118px; max-width: 100%; object-fit: contain; }
+.imp-card figcaption { display: flex; flex-direction: column; gap: 2px; }
+.imp-card b { font-size: 14px; font-weight: 800; color: var(--navy); line-height: 1.25; }
+.imp-card span { font-size: 13px; font-weight: 500; color: var(--muted); line-height: 1.35; text-wrap: balance; }
+.solution .imp-note { margin: 12px 0 0; font-size: 13.5px; line-height: 1.5; color: #C9D3D8; }
+@media (min-width: 620px) { .imp-card img { height: 168px; } .imp-card b { font-size: 15px; } .imp-card span { font-size: 14px; } }
