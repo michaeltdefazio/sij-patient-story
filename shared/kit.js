@@ -33,12 +33,14 @@
   try { seen = sessionStorage.getItem(key) === '1'; } catch (e) {}
   if (seen) return;
   var c = d.createElement('button');
-  c.type = 'button'; c.className = 'coach no-print'; c.setAttribute('aria-label', 'Hint: the buttons at the bottom of the screen move you around the site. Tap to hide this hint.');
-  c.textContent = 'Tap the buttons below to explore';
+  c.type = 'button'; c.className = 'coach no-print'; c.setAttribute('aria-label', 'Hint: the tabs at the bottom of the screen open the other pages of this site. Tap to hide this hint.');
+  c.textContent = 'Tap the tabs below to explore';
   d.body.appendChild(c);
+  tabs.classList.add('nudge');
   function gone() {
     if (!c.parentNode) return;
     c.parentNode.removeChild(c);
+    tabs.classList.remove('nudge');
     try { sessionStorage.setItem(key, '1'); } catch (e) {}
     window.removeEventListener('scroll', onScroll);
   }
@@ -46,5 +48,5 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   c.addEventListener('click', gone);
   tabs.addEventListener('click', gone);
-  setTimeout(gone, 9000);
+  setTimeout(gone, 12000);
 })();
