@@ -58,7 +58,7 @@
     var sets = all('fieldset[data-count]').filter(function (f) { return !f.closest('[hidden]'); });
     var done = sets.filter(function (f) { return f.querySelector('input:checked'); }).length;
     bar.style.width = Math.round(100 * done / sets.length) + '%';
-    progTxt.textContent = done + ' of ' + sets.length + ' questions answered';
+    progTxt.textContent = done + ' of ' + sets.length + (sets.length === 1 ? ' question answered' : ' questions answered');
   };
 
   /* ---- the summary ---- */
