@@ -1,0 +1,61 @@
+/* Dr. Madupu site: app-style chrome (top bar + bottom tabs), doctor intro, practice and Omnia tiles,
+   the visit-form checklist extras and the worksheet card. Loaded after the shared styles; shared files are not edited. */
+:root { --tabs: 66px; --topbar: 56px; --bar: calc(var(--tabs) + env(safe-area-inset-bottom) + 6px); }
+html { scroll-padding-top: calc(var(--topbar) + 12px); }
+
+/* ---- top bar ---- */
+.topbar { position: sticky; top: 0; z-index: 20; background: var(--navy-2); border-bottom: 1px solid rgba(255,255,255,.12); }
+.topbar .in { max-width: 760px; margin: 0 auto; min-height: var(--topbar); padding: 6px max(16px, env(safe-area-inset-right)) 6px max(16px, env(safe-area-inset-left)); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.topbar .brand { display: inline-flex; align-items: center; min-height: 44px; color: #FFFFFF; font: 800 15px/1.2 var(--font); letter-spacing: .01em; text-decoration: none; }
+.topbar .call-pill { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px 0 13px; border-radius: 999px; background: var(--gold); color: var(--navy-2); font: 800 15.5px/1 var(--font); text-decoration: none; white-space: nowrap; }
+.topbar .call-pill svg { width: 18px; height: 18px; flex: none; }
+@media (max-width: 359px) { .topbar .call-pill .num { display: none; } .topbar .brand { font-size: 14px; } }
+
+/* ---- bottom tabs ---- */
+.tabs { position: fixed; left: 50%; bottom: 0; transform: translateX(-50%); z-index: 30; display: grid; grid-template-columns: repeat(5, 1fr); width: 100%; max-width: 560px; padding-bottom: env(safe-area-inset-bottom); background: #FFFFFF; border-top: 1px solid #E3E7EC; box-shadow: 0 -4px 16px rgba(31,39,53,.10); }
+.tabs a { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: var(--tabs); padding: 8px 2px 7px; color: #50617A; text-decoration: none; font: 700 12.5px/1.1 var(--font); }
+.tabs svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.tabs a span { white-space: nowrap; }
+.tabs a[aria-current="page"] { color: var(--navy); background: var(--soft); }
+.tabs a[aria-current="page"]::before { content: ""; position: absolute; left: 14%; right: 14%; top: 0; height: 4px; border-radius: 0 0 4px 4px; background: var(--teal-bright); }
+.tabs a:active { background: var(--soft); }
+@media (max-width: 359px) { .tabs a { font-size: 11.5px; padding-inline: 0; } }
+@media (max-height: 460px) { :root { --tabs: 54px; } .tabs a { flex-direction: row; gap: 8px; padding-block: 4px; } .tabs svg { width: 22px; height: 22px; } }
+.in-progress { top: var(--topbar); }
+
+/* ---- doctor intro and the two partner tiles (home) ---- */
+.doc-intro { margin: 0; font-size: 16px; font-weight: 500; line-height: 1.55; }
+.doc a.ph { display: block; flex-shrink: 0; line-height: 0; }
+.partners { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.partners .pt { position: relative; display: flex; flex-direction: column; gap: 3px; padding: 16px 16px 14px; border-radius: 14px; background: var(--soft); color: var(--ink); text-decoration: none; border-top: 5px solid var(--teal-bright); }
+.partners .pt.omnia { border-top-color: var(--orange); }
+.partners .pt:hover, .partners .pt:focus-visible { outline: 2px solid var(--teal-bright); outline-offset: 2px; }
+.partners .pk { font-size: 11.5px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #007F82; }
+.partners .pt.omnia .pk { color: #A5610B; }
+.partners b { font-size: 18px; font-weight: 800; line-height: 1.2; color: var(--navy); }
+.partners .pd { font-size: 14px; font-weight: 500; line-height: 1.4; color: var(--ink); }
+.partners .go { margin-top: 4px; font-size: 14px; font-weight: 800; color: var(--navy); }
+@media (max-width: 460px) { .partners { grid-template-columns: 1fr; } }
+
+/* ---- Omnia tab ---- */
+.vid-note { margin: 8px 0 0; font-size: 14.5px; font-weight: 500; line-height: 1.45; color: var(--muted); }
+.omnia-top { display: flex; flex-direction: column; gap: 14px; }
+.edu .by { display: block; margin-top: 2px; font-size: 13.5px; font-weight: 600; color: var(--muted); }
+
+/* ---- visit form: urgent check, imaging and records ---- */
+.q-sec > .lead { margin: -10px 0 0; font-size: 15.5px; font-weight: 500; line-height: 1.45; color: var(--muted); }
+.q-more.warn { background: #FDECEC; border-left-color: #D96A6A; }
+.q-more.warn p { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.45; color: #7A2B2B; }
+.q-more.warn a { color: #7A2B2B; font-weight: 800; }
+.q-more.warn b { font-weight: 800; }
+.paper-link { margin: 0 0 14px; font-size: 15.5px; font-weight: 600; }
+.paper-link a { color: var(--navy); font-weight: 800; text-underline-offset: 2px; }
+.sum-flag { margin: 10px 0 0; padding: 10px 12px; border-radius: 10px; background: #FDECEC; border-left: 5px solid #D96A6A; font-size: 15.5px; line-height: 1.4; color: #7A2B2B; }
+.sum-flag b { font-weight: 800; }
+@media print { .sum-flag { background: none; border: 1.5pt solid #000; color: #000; } }
+
+/* ---- page room for the bottom tabs; hints; one-sheet guide ---- */
+body { padding-bottom: calc(var(--bar) + 10px); }
+.q legend .hint { display: block; margin-top: 3px; font-size: 14.5px; font-weight: 500; line-height: 1.4; color: var(--muted); }
+.q legend .hint a { color: var(--navy); font-weight: 700; text-underline-offset: 2px; }
+.sheets.one { grid-template-columns: minmax(0, 300px); justify-content: center; }
